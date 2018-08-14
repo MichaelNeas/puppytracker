@@ -1,6 +1,6 @@
 //
 //  RatingControl.swift
-//  FoodTracker
+//  PuppyTracker
 //
 //  Created by Michael Neas on 2/19/18.
 //  Copyright © 2018 Michael Neas. All rights reserved.

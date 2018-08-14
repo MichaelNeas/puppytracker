@@ -1,6 +1,6 @@
 //
-//  FoodTrackerUITests.swift
-//  FoodTrackerUITests
+//  PuppyTrackerUITests.swift
+//  PuppyTrackerUITests
 //
 //  Created by Michael Neas on 2/19/18.
 //  Copyright © 2018 Michael Neas. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class FoodTrackerUITests: XCTestCase {
+class PuppyTrackerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

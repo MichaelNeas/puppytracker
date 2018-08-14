@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  FoodTracker
+//  PuppyTracker
 //
 //  Created by Michael Neas on 2/19/18.
 //  Copyright © 2018 Michael Neas. All rights reserved.
@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: Properties
-    @IBOutlet weak var foodNameTextField: UITextField!
-    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var puppyNameTextField: UITextField!
+    @IBOutlet weak var puppyNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     
@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // Handle text fields user input from delegate callbacks
-        foodNameTextField.delegate = self
+        puppyNameTextField.delegate = self
     }
     
     //MARK: UITextFieldDelegate
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        foodNameLabel.text = textField.text
+        puppyNameLabel.text = textField.text
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         //dont show keyboard for image selection
-        foodNameTextField.resignFirstResponder()
+        puppyNameTextField.resignFirstResponder()
         //view vontroller for media from photo library
         let imagePickerController = UIImagePickerController()
         //pick photos, dont take them, enumeration of photolib

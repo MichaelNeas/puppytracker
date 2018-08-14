@@ -1,6 +1,6 @@
 //
-//  Food.swift
-//  FoodTracker
+//  Puppy.swift
+//  PuppyTracker
 //
 //  Created by Michael Neas on 2/19/18.
 //  Copyright © 2018 Michael Neas. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Food {
+class Puppy {
     //MARK: Properties
     var name: String
     var photo: UIImage?
