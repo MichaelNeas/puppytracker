@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,33 +18,36 @@
                         <viewControllerLayoutGuide type="bottom" id="Rgy-MJ-ki2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-s1-fxb">
-                                <rect key="frame" x="16" y="40" width="343" height="505.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="576"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are we playin with today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWj-7e-Isx">
-                                        <rect key="frame" x="56" y="0.0" width="231.5" height="20.5"/>
+                                        <rect key="frame" x="71.333333333333329" y="0.0" width="231.33333333333337" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="SqG-eE-rEb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pups Name Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVx-SW-lMQ">
-                                        <rect key="frame" x="0.0" y="30.5" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="374" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFi-69-PH8">
-                                        <rect key="frame" x="153.5" y="70.5" width="36" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFi-69-PH8">
+                                        <rect key="frame" x="169" y="100" width="36" height="40"/>
                                         <state key="normal" title="Woof"/>
                                         <connections>
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCO-ps-hc0"/>
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="onu-qe-IpP">
-                                        <rect key="frame" x="0.0" y="110.5" width="343" height="343"/>
+                                        <rect key="frame" x="0.0" y="150" width="374" height="374"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="onu-qe-IpP" secondAttribute="height" multiplier="1:1" id="aUq-Iv-1SS"/>
@@ -56,7 +57,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n34-86-ZGs" customClass="RatingControl" customModule="PuppyTracker" customModuleProvider="target">
-                                        <rect key="frame" x="50.5" y="463.5" width="242" height="42"/>
+                                        <rect key="frame" x="66" y="534" width="242" height="42"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                 <integer key="value" value="5"/>
@@ -69,7 +70,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="onu-qe-IpP" firstAttribute="leading" secondItem="vmj-s1-fxb" secondAttribute="leadingMargin" id="A49-3v-m6f"/>
+                                    <constraint firstItem="CFi-69-PH8" firstAttribute="height" secondItem="HVx-SW-lMQ" secondAttribute="height" id="BfF-ep-Twf"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="HVx-SW-lMQ" secondAttribute="trailing" id="Yh6-8c-j1R"/>
+                                    <constraint firstItem="HVx-SW-lMQ" firstAttribute="height" secondItem="FWj-7e-Isx" secondAttribute="height" id="dpN-rp-J4h"/>
                                     <constraint firstItem="onu-qe-IpP" firstAttribute="trailing" secondItem="vmj-s1-fxb" secondAttribute="trailingMargin" id="hwX-H0-tb3"/>
                                 </constraints>
                             </stackView>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		687CA7FD203BC6B00013AF44 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CA7FC203BC6B00013AF44 /* Food.swift */; };
+		687CA7FD203BC6B00013AF44 /* Puppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CA7FC203BC6B00013AF44 /* Puppy.swift */; };
 		68B10A24203B726100A49161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B10A23203B726100A49161 /* AppDelegate.swift */; };
 		68B10A26203B726100A49161 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B10A25203B726100A49161 /* ViewController.swift */; };
 		68B10A29203B726100A49161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B10A27203B726100A49161 /* Main.storyboard */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		687CA7FC203BC6B00013AF44 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		687CA7FC203BC6B00013AF44 /* Puppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puppy.swift; sourceTree = "<group>"; };
 		68B10A20203B726100A49161 /* PuppyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuppyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B10A23203B726100A49161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68B10A25203B726100A49161 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		68B10A22203B726100A49161 /* PuppyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				687CA7FC203BC6B00013AF44 /* Food.swift */,
+				68E4CF73226C167E00E7910D /* Models */,
 				68B10A23203B726100A49161 /* AppDelegate.swift */,
 				68B10A25203B726100A49161 /* ViewController.swift */,
 				68B10A51203BA81D00A49161 /* RatingControl.swift */,
@@ -129,6 +129,14 @@
 				68B10A45203B726100A49161 /* Info.plist */,
 			);
 			path = PuppyTrackerUITests;
+			sourceTree = "<group>";
+		};
+		68E4CF73226C167E00E7910D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				687CA7FC203BC6B00013AF44 /* Puppy.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68B10A26203B726100A49161 /* ViewController.swift in Sources */,
-				687CA7FD203BC6B00013AF44 /* Food.swift in Sources */,
+				687CA7FD203BC6B00013AF44 /* Puppy.swift in Sources */,
 				68B10A52203BA81D00A49161 /* RatingControl.swift in Sources */,
 				68B10A24203B726100A49161 /* AppDelegate.swift in Sources */,
 			);
@@ -472,9 +480,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = FoodTrackerTests/Info.plist;
+				INFOPLIST_FILE = PuppyTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.FoodTrackerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.PuppyTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,9 +497,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = FoodTrackerTests/Info.plist;
+				INFOPLIST_FILE = PuppyTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.FoodTrackerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.PuppyTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -505,13 +513,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = FoodTrackerUITests/Info.plist;
+				INFOPLIST_FILE = PuppyTrackerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.FoodTrackerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.PuppyTrackerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FoodTracker;
+				TEST_TARGET_NAME = PuppyTracker;
 			};
 			name = Debug;
 		};
@@ -521,13 +529,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = FoodTrackerUITests/Info.plist;
+				INFOPLIST_FILE = PuppyTrackerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.FoodTrackerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeneas.PuppyTrackerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FoodTracker;
+				TEST_TARGET_NAME = PuppyTracker;
 			};
 			name = Release;
 		};
