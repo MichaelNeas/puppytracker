@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PuppyViewController.swift
 //  PuppyTracker
 //
 //  Created by Michael Neas on 2/19/18.
@@ -8,19 +8,31 @@
 //
 
 import UIKit
+// This imports the unified logging system. Like the print() function, the unified logging system lets you send messages to the console. However, the unified logging system gives you more control over when messages appear and how they are saved.
+import os.log
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PuppyViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: Properties
     @IBOutlet weak var puppyNameTextField: UITextField!
-    @IBOutlet weak var puppyNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    /*
+     This value is either passed by `PuppyTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new pup.
+     */
+    var puppy: Puppy?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // Handle text fields user input from delegate callbacks
         puppyNameTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Puppy name.
+        updateSaveButtonState()
     }
     
     //MARK: UITextFieldDelegate
@@ -30,8 +42,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        puppyNameLabel.text = textField.text
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -50,10 +67,33 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         //dismiss once finished
         dismiss(animated: true, completion: nil)
     }
+
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        // identity operator (===) to check that the objects referenced by the sender and the saveButton outlet are the same.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        let name = puppyNameTextField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        puppy = Puppy(name: name, photo: photo, rating: rating)
+    }
     
-    //MARK: Actions
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = puppyNameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
+    
     @IBAction func setDefaultLabelText(_ sender: Any) {
-        puppyNameLabel.text = "Bark"
+        
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {

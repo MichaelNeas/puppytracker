@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fDT-Bg-Ngj">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Your Pups-->
+        <scene sceneID="bxA-Wa-O8a">
+            <objects>
+                <tableViewController id="rlf-gL-SjE" customClass="PuppyTableViewController" customModule="PuppyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fld-xg-mmI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PuppyTableViewCell" rowHeight="90" id="asj-mo-gij" customClass="PuppyTableViewCell" customModule="PuppyTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="asj-mo-gij" id="zfA-PU-UiE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="TJw-8O-vtY">
+                                            <rect key="frame" x="0.0" y="0.0" width="108" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59t-zv-tWM">
+                                            <rect key="frame" x="116" y="11" width="252" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tcM-aI-ng1" customClass="RatingControl" customModule="PuppyTracker" customModuleProvider="target">
+                                            <rect key="frame" x="116" y="40" width="252" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </stackView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="59t-zv-tWM" id="LwA-1d-WOp"/>
+                                    <outlet property="pupperImageView" destination="TJw-8O-vtY" id="kz2-C1-Y8Q"/>
+                                    <outlet property="pupperRatingControl" destination="tcM-aI-ng1" id="ud2-ak-6CC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rlf-gL-SjE" id="FJR-88-eSD"/>
+                            <outlet property="delegate" destination="rlf-gL-SjE" id="R1S-id-2mj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Pups" id="3gO-4I-XlQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IGw-cr-6si">
+                            <connections>
+                                <segue destination="Dhh-vk-sqD" kind="presentation" identifier="AddItem" id="vr2-pi-dTR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vl-MX-bhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="80.357142857142847"/>
+        </scene>
+        <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PuppyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PuppyViewController" customModule="PuppyTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Blu-zs-EgN"/>
                         <viewControllerLayoutGuide type="bottom" id="Rgy-MJ-ki2"/>
@@ -22,32 +79,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-s1-fxb">
-                                <rect key="frame" x="20" y="64" width="374" height="576"/>
+                                <rect key="frame" x="20" y="96" width="374" height="506"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are we playin with today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWj-7e-Isx">
-                                        <rect key="frame" x="71.333333333333329" y="0.0" width="231.33333333333337" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="SqG-eE-rEb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pups Name Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVx-SW-lMQ">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFi-69-PH8">
-                                        <rect key="frame" x="169" y="100" width="36" height="40"/>
+                                        <rect key="frame" x="169" y="40" width="36" height="30"/>
                                         <state key="normal" title="Woof"/>
                                         <connections>
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCO-ps-hc0"/>
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="onu-qe-IpP">
-                                        <rect key="frame" x="0.0" y="150" width="374" height="374"/>
+                                        <rect key="frame" x="0.0" y="80" width="374" height="374"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="onu-qe-IpP" secondAttribute="height" multiplier="1:1" id="aUq-Iv-1SS"/>
@@ -57,7 +105,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n34-86-ZGs" customClass="RatingControl" customModule="PuppyTracker" customModuleProvider="target">
-                                        <rect key="frame" x="66" y="534" width="242" height="42"/>
+                                        <rect key="frame" x="66" y="464" width="242" height="42"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                 <integer key="value" value="5"/>
@@ -72,7 +120,6 @@
                                     <constraint firstItem="onu-qe-IpP" firstAttribute="leading" secondItem="vmj-s1-fxb" secondAttribute="leadingMargin" id="A49-3v-m6f"/>
                                     <constraint firstItem="CFi-69-PH8" firstAttribute="height" secondItem="HVx-SW-lMQ" secondAttribute="height" id="BfF-ep-Twf"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="HVx-SW-lMQ" secondAttribute="trailing" id="Yh6-8c-j1R"/>
-                                    <constraint firstItem="HVx-SW-lMQ" firstAttribute="height" secondItem="FWj-7e-Isx" secondAttribute="height" id="dpN-rp-J4h"/>
                                     <constraint firstItem="onu-qe-IpP" firstAttribute="trailing" secondItem="vmj-s1-fxb" secondAttribute="trailingMargin" id="hwX-H0-tb3"/>
                                 </constraints>
                             </stackView>
@@ -80,25 +127,74 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vmj-s1-fxb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ALS-6j-et3"/>
-                            <constraint firstItem="vmj-s1-fxb" firstAttribute="top" secondItem="Blu-zs-EgN" secondAttribute="bottom" constant="20" id="Fgl-fe-6sg"/>
+                            <constraint firstItem="vmj-s1-fxb" firstAttribute="top" secondItem="Blu-zs-EgN" secondAttribute="bottom" constant="8" id="Jyo-yC-tp3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vmj-s1-fxb" secondAttribute="trailing" id="hdw-zB-CHK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Meal" id="VV6-ps-Ejg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QYN-nh-EBj">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="1gG-X7-Ohp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="U8f-d7-Vob">
+                            <connections>
+                                <segue destination="6Wg-m9-C4p" kind="unwind" unwindAction="unwindToMealListWithSender:" id="3nb-vx-2FJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoImageView" destination="onu-qe-IpP" id="e3i-nD-Fbr"/>
-                        <outlet property="puppyNameLabel" destination="FWj-7e-Isx" id="rS6-Kl-64H"/>
                         <outlet property="puppyNameTextField" destination="HVx-SW-lMQ" id="Zgi-pD-IEj"/>
                         <outlet property="ratingControl" destination="n34-86-ZGs" id="E70-xL-3Qd"/>
+                        <outlet property="saveButton" destination="U8f-d7-Vob" id="AUZ-99-U69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="6Wg-m9-C4p" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Pmh-Rf-QKw">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="glA-8E-ffV"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="56.25" y="81.25"/>
+            <point key="canvasLocation" x="1875.3623188405797" y="81.026785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cup-2N-bg8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fDT-Bg-Ngj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vdl-pQ-aia">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rlf-gL-SjE" kind="relationship" relationship="rootViewController" id="55D-oV-Cq5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ye9-MZ-N3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-881.15942028985512" y="80.357142857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3I9-gt-QSz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dhh-vk-sqD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tQB-1R-DLH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tvJ-za-Hqg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y25-fN-Hj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965.21739130434787" y="81.026785714285708"/>
         </scene>
     </scenes>
     <resources>
