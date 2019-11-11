@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fDT-Bg-Ngj">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fDT-Bg-Ngj">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="asj-mo-gij" id="zfA-PU-UiE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="TJw-8O-vtY">
@@ -46,6 +44,7 @@
                                     <outlet property="nameLabel" destination="59t-zv-tWM" id="LwA-1d-WOp"/>
                                     <outlet property="pupperImageView" destination="TJw-8O-vtY" id="kz2-C1-Y8Q"/>
                                     <outlet property="pupperRatingControl" destination="tcM-aI-ng1" id="ud2-ak-6CC"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="scI-1K-ZWu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,23 +78,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-s1-fxb">
-                                <rect key="frame" x="20" y="96" width="374" height="506"/>
+                                <rect key="frame" x="20" y="96" width="374" height="514"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pups Name Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVx-SW-lMQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFi-69-PH8">
-                                        <rect key="frame" x="169" y="40" width="36" height="30"/>
+                                        <rect key="frame" x="169" y="44" width="36" height="34"/>
                                         <state key="normal" title="Woof"/>
                                         <connections>
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCO-ps-hc0"/>
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="onu-qe-IpP">
-                                        <rect key="frame" x="0.0" y="80" width="374" height="374"/>
+                                        <rect key="frame" x="0.0" y="88" width="374" height="374"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="onu-qe-IpP" secondAttribute="height" multiplier="1:1" id="aUq-Iv-1SS"/>
@@ -105,7 +103,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n34-86-ZGs" customClass="RatingControl" customModule="PuppyTracker" customModuleProvider="target">
-                                        <rect key="frame" x="66" y="464" width="242" height="42"/>
+                                        <rect key="frame" x="66" y="472" width="242" height="42"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                 <integer key="value" value="5"/>
@@ -184,7 +182,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dhh-vk-sqD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tQB-1R-DLH">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -194,10 +192,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y25-fN-Hj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965.21739130434787" y="81.026785714285708"/>
+            <point key="canvasLocation" x="949" y="-226"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="269" height="183"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="scI-1K-ZWu"/>
+    </inferredMetricsTieBreakers>
 </document>

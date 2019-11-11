@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PuppyTableViewController: UITableViewController {
 
@@ -15,6 +16,8 @@ class PuppyTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // editButton comes for free and has editing behavior built into it
+        navigationItem.leftBarButtonItem = editButtonItem
         loadSamplePups()
     }
 
@@ -35,6 +38,21 @@ class PuppyTableViewController: UITableViewController {
         cell.pupperImageView.image = pup.photo
         cell.pupperRatingControl.rating = pup.rating
         return cell
+    }
+    
+    //  To perform any sort of editing on a table view, you need to implement one of its delegate methods, tableView(_:commit:forRowAt:). This delegate method manages changes to the table rows when it’s in editing mode.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            puppies.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    // sets all cells to be editable
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     private func loadSamplePups() {
@@ -61,12 +79,40 @@ class PuppyTableViewController: UITableViewController {
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PuppyViewController,
             let puppy = sourceViewController.puppy {
-            let newIndexPath = IndexPath(row: puppies.count, section: 0)
-            puppies.append(puppy)
-            // This animates the addition of a new row to the table view for the cell that contains information about the new meal.
-            // The .automatic animation option uses the best animation based on the table’s current state,
-            // and the insertion point’s location. 
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            // existing vs new pups
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                puppies[selectedIndexPath.row] = puppy
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                let newIndexPath = IndexPath(row: puppies.count, section: 0)
+                puppies.append(puppy)
+                // This animates the addition of a new row to the table view for the cell that contains information about the new meal.
+                // The .automatic animation option uses the best animation based on the table’s current state,
+                // and the insertion point’s location.
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "AddItem":
+            os_log("Adding new pupper.",  log: OSLog.default, type: .debug)
+        case "ShowDetail":
+            guard let pupDetailViewController = segue.destination as? PuppyViewController else {
+                fatalError("Unexpected destinaltion: \(segue.destination)")
+            }
+            guard let selectedPupperCell = sender as? PuppyTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedPupperCell) else {
+                fatalError("Selected cell is not displayed by the table")
+            }
+            let selectedPup = puppies[indexPath.row]
+            pupDetailViewController.puppy = selectedPup
+        default:
+            fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
         }
     }
     

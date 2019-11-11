@@ -31,6 +31,13 @@ class PuppyViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Handle text fields user input from delegate callbacks
         puppyNameTextField.delegate = self
         
+        if let pup = puppy {
+            navigationItem.title = pup.name
+            puppyNameTextField.text = pup.name
+            photoImageView.image = pup.photo
+            ratingControl.rating = pup.rating
+        }
+        
         // Enable the Save button only if the text field has a valid Puppy name.
         updateSaveButtonState()
     }
@@ -93,7 +100,16 @@ class PuppyViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // check if the view controller is a NavController
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        //  If the view controller has been pushed onto a navigation stack, this property contains a reference to the stack’s navigation controller.
+        } else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The PuppyViewController is not inside a navigation controller.")
+        }
     }
     
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
