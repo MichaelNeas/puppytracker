@@ -18,7 +18,12 @@ class PuppyTableViewController: UITableViewController {
         super.viewDidLoad()
         // editButton comes for free and has editing behavior built into it
         navigationItem.leftBarButtonItem = editButtonItem
-        loadSamplePups()
+        
+        if let savedPups = loadPups() {
+            puppies += savedPups
+        } else {
+            loadSamplePups()
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,6 +49,7 @@ class PuppyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             puppies.remove(at: indexPath.row)
+            savePups()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -75,6 +81,20 @@ class PuppyTableViewController: UITableViewController {
         puppies += [pup1, pup2, pup3]
     }
     
+    private func savePups() {
+        // try to archive the puppies, bool success return
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(puppies, toFile: Puppy.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Puppies are save", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save the puppies", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadPups() -> [Puppy]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Puppy.ArchiveURL.path) as? [Puppy]
+    }
+    
     //MARK: Actions
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PuppyViewController,
@@ -91,6 +111,7 @@ class PuppyTableViewController: UITableViewController {
                 // and the insertion point’s location.
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            savePups()
         }
     }
     
@@ -115,5 +136,4 @@ class PuppyTableViewController: UITableViewController {
             fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
         }
     }
-    
 }
